@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.rookie.user.domain.User" table="match_users">
+    
+        <composite-id name="id" class="com.rookie.user.domain.UserId" access="field">
+            <key-property column="id" name="value" length="36" access="field" />
+        </composite-id>
+        <component name="name" class="com.rookie.user.domain.UserName" access="field">
+            <property name="value" column="name" length="36" access="field" />
+        </component>
+        <component name="nick" class="com.rookie.user.domain.UserNick" access="field">
+            <property name="value" column="nick" length="36" access="field" />
+        </component>	
+        <component name="password" class="com.rookie.user.domain.UserNick" access="field">
+            <property name="value" column="password" length="36" access="field" />
+        </component>        	
+    </class>
+</hibernate-mapping>
+
