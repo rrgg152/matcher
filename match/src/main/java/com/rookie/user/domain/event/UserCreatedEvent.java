@@ -2,6 +2,7 @@ package com.rookie.user.domain.event;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 import com.rookie.shared.domain.bus.event.DomainEvent;
 import com.rookie.user.domain.UserId;
@@ -55,4 +56,24 @@ public class UserCreatedEvent extends DomainEvent {
 	public UserPassword password() {
 		return password;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, nick, password);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserCreatedEvent other = (UserCreatedEvent) obj;
+		return Objects.equals(name, other.name) && Objects.equals(nick, other.nick)
+				&& Objects.equals(password, other.password);
+	}
+	
+	
 }

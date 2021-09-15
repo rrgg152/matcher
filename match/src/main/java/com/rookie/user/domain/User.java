@@ -1,5 +1,7 @@
 package com.rookie.user.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -57,6 +59,22 @@ public final class User extends AggregateRoot {
 
 	public UserPassword password() {
 		return password;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, nick, password);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name) && Objects.equals(nick, other.nick)
+				&& Objects.equals(password, other.password);
 	}
 	
 	
