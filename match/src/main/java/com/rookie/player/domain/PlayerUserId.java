@@ -2,10 +2,11 @@ package com.rookie.player.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+
+import com.rookie.shared.domain.Identifier;
 
 @SuppressWarnings("serial")
 @Embeddable
@@ -15,8 +16,10 @@ public class PlayerUserId implements Serializable {
 	protected String value;
 
 	public PlayerUserId(String value) {
+		Identifier.ensureValidUuid(value);
 		this.value = value;
 	}
+	@SuppressWarnings("unused")
 	private PlayerUserId() {
 		value = null;
 	}

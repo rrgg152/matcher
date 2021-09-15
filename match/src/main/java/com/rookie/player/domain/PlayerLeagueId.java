@@ -12,6 +12,7 @@ public final class PlayerLeagueId {
 	public PlayerLeagueId(String value) {
 		this.value = value;
 	}
+	@SuppressWarnings("unused")
 	private PlayerLeagueId() {
 		value = null;
 	}

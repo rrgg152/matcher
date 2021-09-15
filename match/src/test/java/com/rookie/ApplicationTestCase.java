@@ -46,7 +46,15 @@ public abstract class ApplicationTestCase {
           .andExpect(status().is(expectedStatusCode))
           .andExpect(response);
   }
+  protected void assertResponse(
+      String endpoint,
+      Integer expectedStatusCode
+  ) throws Exception {
 
+      mockMvc
+          .perform(get(endpoint))
+          .andExpect(status().is(expectedStatusCode));
+  }
   protected void assertResponse(
       String endpoint,
       Integer expectedStatusCode,

@@ -26,7 +26,7 @@ public final class User extends AggregateRoot {
 	private final UserNick nick;
 	@Embedded
 	private final UserPassword password;
-
+	@SuppressWarnings("unused")
 	private User() {
 		id = null;
 		name = null;

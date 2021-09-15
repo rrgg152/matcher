@@ -14,7 +14,7 @@ public class UserPassword {
 	public UserPassword(String value) {
 		this.value = value;
 	}
-
+	@SuppressWarnings("unused")
 	private UserPassword() {
 		value = null;
 	}

@@ -13,7 +13,7 @@ public final class UserNick {
 	public UserNick(String value) {
 		this.value = value;
 	}
-
+	@SuppressWarnings("unused")
 	private UserNick() {
 		value = null;
 	}

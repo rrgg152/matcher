@@ -14,6 +14,7 @@ public final class UserName {
 	public UserName(String value) {
 		this.value = value;
 	}
+	@SuppressWarnings("unused")
 	private UserName() {
 		value = null;
 	}

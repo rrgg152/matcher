@@ -42,7 +42,7 @@ public abstract class Identifier implements Serializable {
     return Objects.hash(value);
   }
 
-  private void ensureValidUuid(String value) throws IllegalArgumentException {
+  public static void ensureValidUuid(String value) throws IllegalArgumentException {
     UUID.fromString(value);
   }
 }
