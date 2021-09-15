@@ -1,6 +1,5 @@
-package com.rookie.user.application;
+package com.rookie.user.application.create;
 
-import com.rookie.user.application.create.CreateUserCommand;
 import com.rookie.user.domain.UserId;
 import com.rookie.user.domain.UserIdMother;
 import com.rookie.user.domain.UserName;

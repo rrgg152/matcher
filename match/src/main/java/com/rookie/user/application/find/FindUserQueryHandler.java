@@ -6,10 +6,10 @@ import com.rookie.user.application.UserResponse;
 import com.rookie.user.domain.error.UserNotExist;
 
 @Handdler
-public final class FindCourseQueryHandler implements QueryHandler<FindUserQuery, UserResponse> {
+public final class FindUserQueryHandler implements QueryHandler<FindUserQuery, UserResponse> {
     private final UserFinder finder;
 
-    public FindCourseQueryHandler(UserFinder finder) {
+    public FindUserQueryHandler(UserFinder finder) {
         this.finder = finder;
     }
 

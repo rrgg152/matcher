@@ -1,11 +1,8 @@
-package com.rookie.user.application;
+package com.rookie.user.application.create;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.rookie.user.UserModuleUnitTestCase;
-import com.rookie.user.application.create.CreateUserCommand;
-import com.rookie.user.application.create.CreateUserCommandHandler;
-import com.rookie.user.application.create.UserCreator;
 import com.rookie.user.domain.User;
 import com.rookie.user.domain.UserMother;
 import com.rookie.user.domain.event.UserCreatedEvent;

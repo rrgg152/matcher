@@ -7,8 +7,7 @@ import com.rookie.user.domain.UserRepository;
 
 public abstract class UserModuleInfrastructureTestCase
     extends InfrastructureTestCase {
-//  protected InMemoryUsuarioRepository inMemoryUsuarioRepository =
-//	new InMemoryUsuarioRepository();
+
   @Autowired
-  protected UserRepository h2Repository;
+  protected UserRepository userRepository;
 }
