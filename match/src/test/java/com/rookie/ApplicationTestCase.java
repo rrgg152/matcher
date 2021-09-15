@@ -28,7 +28,7 @@ import com.rookie.shared.domain.bus.event.EventBus;
 @AutoConfigureMockMvc
 public abstract class ApplicationTestCase {
   @Autowired
-  private MockMvc  mockMvc;
+  protected MockMvc  mockMvc;
   @Autowired
   private EventBus eventBus;
   

@@ -15,6 +15,7 @@ import com.rookie.shared.domain.UuidGenerator;
 import com.rookie.shared.domain.bus.command.CommandBus;
 import com.rookie.shared.domain.bus.command.error.CommandHandlerExecutionError;
 import com.rookie.shared.domain.bus.query.QueryBus;
+import com.rookie.shared.domain.bus.query.error.QueryHandlerExecutionError;
 import com.rookie.shared.domain.error.DomainError;
 import com.rookie.user.domain.error.UserNotExist;
 
@@ -48,10 +49,11 @@ public final class PlayerPutController extends ApiController {
 	
 	
 	@Override
-	public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {        
-		return new HashMap<Class<? extends DomainError>, HttpStatus>() {{
-			put(UserNotExist.class, HttpStatus.NOT_FOUND);
-    }};}
+        public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
+            return new HashMap<Class<? extends DomainError>, HttpStatus>() {{
+				put(QueryHandlerExecutionError.class, HttpStatus.NOT_FOUND);
+            }};
+        }
 
 }
 final class CreatePlayerRequest {
