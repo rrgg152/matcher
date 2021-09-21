@@ -2,13 +2,6 @@ package com.rookie.player.infrastructure.controller;
 
 import java.util.HashMap;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.rookie.player.application.create.CreatePlayerCommand;
 import com.rookie.shared.domain.ApiController;
 import com.rookie.shared.domain.UuidGenerator;
@@ -17,7 +10,13 @@ import com.rookie.shared.domain.bus.command.error.CommandHandlerExecutionError;
 import com.rookie.shared.domain.bus.query.QueryBus;
 import com.rookie.shared.domain.bus.query.error.QueryHandlerExecutionError;
 import com.rookie.shared.domain.error.DomainError;
-import com.rookie.user.domain.error.UserNotExist;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

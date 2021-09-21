@@ -1,12 +1,12 @@
 package com.rookie.player.application.create;
 
+import com.rookie.league.domain.LeagueId;
 import com.rookie.player.domain.PlayerId;
-import com.rookie.player.domain.PlayerLeagueId;
-import com.rookie.player.domain.PlayerUserId;
 import com.rookie.shared.domain.Handdler;
 import com.rookie.shared.domain.bus.CommandHandler;
 import com.rookie.shared.domain.bus.query.QueryBus;
 import com.rookie.user.application.find.FindUserQuery;
+import com.rookie.user.domain.UserId;
 
 @Handdler
 public class CreatePlayerCommandHandler implements CommandHandler<CreatePlayerCommand>{
@@ -31,9 +31,9 @@ public class CreatePlayerCommandHandler implements CommandHandler<CreatePlayerCo
 		
 		PlayerId id = new PlayerId(command.id());			
 		
-		PlayerUserId userId = new PlayerUserId(command.userId());
+		UserId userId = new UserId(command.userId());
 		
-		PlayerLeagueId leagueId = new PlayerLeagueId(command.leagueId());
+		LeagueId leagueId = new LeagueId(command.leagueId());
 		
 		creator.execute(id, userId, leagueId);
 	}

@@ -2,9 +2,9 @@ package com.rookie.user.domain;
 
 import java.util.Objects;
 
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.rookie.shared.domain.AggregateRoot;
@@ -18,14 +18,19 @@ public final class User extends AggregateRoot {
 	public static final String NICK	 	= "nick";
 	public static final String PASSWORD = "password";
 	
-	@EmbeddedId
-	private final UserId id;
-	@Embedded
-	private final UserName name;
-	@Embedded
-	private final UserNick nick;
-	@Embedded
-	private final UserPassword password;
+	@Column(name = "ID")
+	@Id
+	private final String id;
+
+	@Column(name = "name")
+	private final String name;
+
+	@Column(name = "nick")
+	private final String nick;
+
+	@Column(name = "password")
+	private final String password;
+
 	@SuppressWarnings("unused")
 	private User() {
 		id = null;
@@ -34,10 +39,10 @@ public final class User extends AggregateRoot {
 		password = null;
 	}
 	public User(UserId id, UserName name, UserNick nick, UserPassword password) {
-		this.id = id;
-		this.name = name;
-		this.nick = nick;
-		this.password = password;
+		this.id = id.value();
+		this.name = name.value();
+		this.nick = nick.value();
+		this.password = password.value();
 	}
 
 	public static User ceate(UserId id, UserName name, UserNick nick, UserPassword password) {
@@ -46,19 +51,19 @@ public final class User extends AggregateRoot {
 		return user;
 	}
 	public UserId id() {
-		return id;
+		return new UserId(id);
 	}
 
 	public UserName name() {
-		return name;
+		return new UserName(name);
 	}
 
 	public UserNick nick() {
-		return nick;
+		return new UserNick(nick);
 	}
 
 	public UserPassword password() {
-		return password;
+		return new UserPassword(password);
 	}
 	@Override
 	public int hashCode() {

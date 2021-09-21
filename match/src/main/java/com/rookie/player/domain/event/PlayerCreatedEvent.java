@@ -3,21 +3,21 @@ package com.rookie.player.domain.event;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import com.rookie.league.domain.LeagueId;
 import com.rookie.player.domain.PlayerId;
-import com.rookie.player.domain.PlayerLeagueId;
-import com.rookie.player.domain.PlayerUserId;
 import com.rookie.shared.domain.bus.event.DomainEvent;
+import com.rookie.user.domain.UserId;
 
 public class PlayerCreatedEvent extends DomainEvent {
 
 	private final PlayerId id;
 	
-	private final PlayerUserId userId;
+	private final UserId userId;
 	
-	private final PlayerLeagueId leagueId;
+	private final LeagueId leagueId;
 	
 
-	public PlayerCreatedEvent(PlayerId id, PlayerUserId userId, PlayerLeagueId leagueId) {
+	public PlayerCreatedEvent(PlayerId id, UserId userId, LeagueId leagueId) {
 		super(id.value());
 		this.id = id;
 		this.userId = userId;
@@ -45,11 +45,11 @@ public class PlayerCreatedEvent extends DomainEvent {
 		return id;
 	}
 
-	public PlayerUserId userId() {
+	public UserId userId() {
 		return userId;
 	}
 
-	public PlayerLeagueId leagueId() {
+	public LeagueId leagueId() {
 		return leagueId;
 	}
 

@@ -1,48 +1,53 @@
 package com.rookie.player.domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.rookie.league.domain.LeagueId;
 import com.rookie.player.domain.event.PlayerCreatedEvent;
 import com.rookie.shared.domain.AggregateRoot;
+import com.rookie.user.domain.UserId;
 
 @Entity
 @Table(name="PLAYERS")
 public final class Player extends AggregateRoot {
-	@EmbeddedId
-	private final PlayerId id;
-	@Embedded
-	private final PlayerUserId userId;
-	@Embedded
-	private final PlayerLeagueId leagueId;
+	@Id
+	@Column(name = "ID")
+	private final String id;
+
+	@Column(name = "user_id")
+	private final String userId;
+
+	@Column(name = "league_id")
+	private final String leagueId;
 
 	public Player() {
 		id = null;
 		userId = null;
 		leagueId = null;
 	}
-	public Player(PlayerId id, PlayerUserId userId, PlayerLeagueId leagueId) {
+	public Player(PlayerId id, UserId userId, LeagueId leagueId) {
 		super();
-		this.id = id;
-		this.userId = userId;
-		this.leagueId = leagueId;
+		this.id = id.value();
+		this.userId = userId.value();
+		this.leagueId = leagueId.value();
 	}
 
 	public PlayerId id() {
-		return id;
+		return new PlayerId(id);
 	}
 
-	public PlayerUserId userId() {
-		return userId;
+	public UserId userId() {
+		return new UserId(userId);
 	}
 
-	public PlayerLeagueId leagueId() {
-		return leagueId;
+	public LeagueId leagueId() {
+		return new LeagueId(leagueId);
 	}
 
-	public static Player create(PlayerId id, PlayerUserId userId, PlayerLeagueId leagueId) {
+	public static Player create(PlayerId id, UserId userId, LeagueId leagueId) {
 		Player player = new Player(id, userId, leagueId);
 		player.record(new PlayerCreatedEvent(id, userId, leagueId));
 		return player;

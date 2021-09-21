@@ -21,7 +21,7 @@ public class H2UserRepository implements UserRepository{
 
 	@Override
 	public Optional<User> byId(UserId id) {
-		return repo.findById(id);
+		return repo.findById(id.value());
 	}
 
 
